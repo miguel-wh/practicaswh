@@ -1,0 +1,31 @@
+<!-- mascotas/templates/listar_mascotas.html -->
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Mascotas</title>
+</head>
+<body>
+    <h1>Listado de Mascotas</h1>
+    <ul>
+        {% for mascota in mascotas %}
+            <li>{{ mascota.nombre }} - {{ mascota.raza }} - {{ mascota.dueño }}</li>
+        {% endfor %}
+    </ul>
+    <h2>Agregar Nueva Mascota</h2>
+    <form method="post">
+        {% csrf_token %}
+        <label for="nombre">{{ backend }}:</label>
+        <label for="nombre">{{ broker }}</label>
+        <label for="nombre">Nombre:</label>
+        <input type="text" name="nombre" required><br>
+        <label for="raza">Raza:</label>
+        <input type="text" name="raza" required><br>
+        <label for="dueño">Dueño:</label>
+        <input type="text" name="dueño" required><br>
+        <button type="submit">Agregar Mascota</button>
+    </form>
+</body>
+</html>
